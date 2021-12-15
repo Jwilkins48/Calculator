@@ -1,0 +1,42 @@
+body {
+    background-color: #90AACB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+#Container {
+    background-color: #444b86;
+    padding: 15px;
+    border-radius: 8px;
+    height: 400px;
+    width: 310px;
+}
+
+#resultBox {
+    padding: 30px;
+    margin: 20px;
+    background-color: #FEF1E6;
+    border-radius: 8px
+}
+
+.line {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 18px;
+}
+
+.btn {
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.1em;
+    margin: 3px;
+    border-radius: 17px;
+}
+
+.btn:hover {
+    background-color: #C06C84;
+}
