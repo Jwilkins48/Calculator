@@ -8,16 +8,18 @@ body {
 }
 
 #Container {
-    background-color: #444b86;
+    background-color: #6269ad;
     padding: 15px;
     border-radius: 8px;
     height: 400px;
     width: 310px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 #resultBox {
-    padding: 30px;
-    margin: 20px;
+    padding: 32px;
+    width: 220px;
+    margin: 20px 13px;
     background-color: #FEF1E6;
     border-radius: 8px
 }
@@ -35,6 +37,8 @@ body {
     font-size: 1.1em;
     margin: 3px;
     border-radius: 17px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border: transparent;
 }
 
 .btn:hover {
