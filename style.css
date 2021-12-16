@@ -1,5 +1,5 @@
 body {
-    background-color: #90AACB;
+    background-color: #8fc0df;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,26 +8,33 @@ body {
 }
 
 #Container {
-    background-color: #6269ad;
+    background-color: #92ccc5;
     padding: 15px;
-    border-radius: 8px;
-    height: 400px;
-    width: 310px;
+    border-radius: 9px;
+    height: 475px;
+    width: 320px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 #resultBox {
     padding: 32px;
-    width: 220px;
+    width: 228px;
+    height: 12px;
     margin: 20px 13px;
     background-color: #FEF1E6;
-    border-radius: 8px
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
 }
 
 .line {
     display: flex;
     justify-content: space-evenly;
     margin-top: 18px;
+}
+
+#clear, #allClear{
+    width: 145px;
 }
 
 .btn {
@@ -42,5 +49,9 @@ body {
 }
 
 .btn:hover {
-    background-color: #C06C84;
+    background-color: #cc8398;
+    cursor: pointer;
+}
+.btn:active{
+    background-color: #c06a82;
 }
