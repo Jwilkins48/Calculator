@@ -11,6 +11,7 @@ const operationBtn = document.querySelectorAll('.operator');
 
 let userDisplay = document.getElementById('userInput');
 let resultDisplay = document.getElementById('userResult');
+let inputDisplay = userInput.textContent;
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
@@ -21,17 +22,23 @@ let add = (n1, n2) => n1 + n2;
 let subtract = (n1, n2) => n1 - n2;
 let multiply = (n1, n2) => n1 * n2;
 let divide = (n1, n2) => n1 / n2;
+let modulus = (n1, n2) => n1 % n2;
+let exponent = (n1, n2) => Math.pow(n1,n2);
 
-const Calculation = (n1, operation, n2) => {
-    switch (operation) {
-        case 'add':
+const Calculation = (n1, n2, operator) => {
+    switch (operator) {
+        case '+':
             return add(n1, n2);
-        case 'subtract':
+        case '-':
             return subtract(n1, n2);
-        case 'multiply':
+        case '*':
             return multiply(n1, n2);
-        case 'divide':
+        case '/':
             return divide(n1, n2);
+        case '%':
+            return modulus(n1, n2);
+        case '^':
+            return exponent(n1, n2);
     };
 };
 
@@ -53,10 +60,20 @@ operationBtn.forEach(opr => {
     opr.addEventListener('click', (e) => {
         if (e.target.innerText !== '=') {
             operator = e.target.innerText
-            userDisplay.innerText = `${firstNumber} ${operator}`
+            let display = `${firstNumber} ${operator}`
+            userDisplay.innerText = display
         } else {
-            userDisplay.innerText = Calculation(firstNumber, operator, secondNumber);
-            
+            resultDisplay.innerText = ' = ' + Calculation(Number(firstNumber), Number(secondNumber), operator)
         };
     });
 });
+
+let allClear = () => {
+    firstNumber = '';
+    secondNumber = '';
+    userDisplay.textContent = 0;
+    resultDisplay.textContent = '';
+    operator = '';
+}
+
+allClearBtn.addEventListener('click', () => allClear());
