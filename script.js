@@ -11,7 +11,6 @@ const operationBtn = document.querySelectorAll('.operator');
 
 let userDisplay = document.getElementById('userInput');
 let resultDisplay = document.getElementById('userResult');
-let equalIsPressed = false;
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
@@ -34,10 +33,8 @@ const Calculation = (n1, n2, operator) => {
         case '*':
             return multiply(n1, n2);
         case '/':
-            if (secondNumber == 0) {
-                userDisplay.innerText = 'Error'
-                alert('Cannot divide by 0')
-            }
+            if (n2 === 0) {
+                return 'Error'};
             return divide(n1, n2);
         case '%':
             return modulus(n1, n2);
