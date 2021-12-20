@@ -11,7 +11,7 @@ const operationBtn = document.querySelectorAll('.operator');
 
 let userDisplay = document.getElementById('userInput');
 let resultDisplay = document.getElementById('userResult');
-let inputDisplay = userInput.textContent;
+let equalIsPressed = false;
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
@@ -23,7 +23,7 @@ let subtract = (n1, n2) => n1 - n2;
 let multiply = (n1, n2) => n1 * n2;
 let divide = (n1, n2) => n1 / n2;
 let modulus = (n1, n2) => n1 % n2;
-let exponent = (n1, n2) => Math.pow(n1,n2);
+let exponent = (n1, n2) => Math.pow(n1, n2);
 
 const Calculation = (n1, n2, operator) => {
     switch (operator) {
@@ -34,11 +34,16 @@ const Calculation = (n1, n2, operator) => {
         case '*':
             return multiply(n1, n2);
         case '/':
+            if (secondNumber == 0) {
+                userDisplay.innerText = 'Error'
+                alert('Cannot divide by 0')
+            }
             return divide(n1, n2);
         case '%':
             return modulus(n1, n2);
         case '^':
             return exponent(n1, n2);
+
     };
 };
 
@@ -63,10 +68,15 @@ operationBtn.forEach(opr => {
             let display = `${firstNumber} ${operator}`
             userDisplay.innerText = display
         } else {
-            resultDisplay.innerText = ' = ' + Calculation(Number(firstNumber), Number(secondNumber), operator)
+            let answer = Calculation(Number(firstNumber), Number(secondNumber), operator)
+            resultDisplay.innerText = ` = ${answer}`;
+            firstNumber = answer;
+            secondNumber = '';
+            operator = opr.textContent;
         };
     });
 });
+
 
 let allClear = () => {
     firstNumber = '';
