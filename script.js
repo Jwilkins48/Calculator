@@ -34,7 +34,8 @@ const Calculation = (n1, n2, operator) => {
             return multiply(n1, n2);
         case '/':
             if (n2 === 0) {
-                return 'Error'};
+                return 'Error'
+            };
             return divide(n1, n2);
         case '%':
             return modulus(n1, n2);
@@ -53,17 +54,24 @@ digitsBtn.forEach(button => {
         } else {
             secondNumber += e.target.innerText;
             userDisplay.innerText = `${firstNumber} ${operator} ${secondNumber}`
+
         };
     });
 });
 
+
 // operator buttons
 operationBtn.forEach(opr => {
     opr.addEventListener('click', (e) => {
-        if (e.target.innerText !== '=') {
+        if (e.target.innerText !== '=' && secondNumber == '') {
             operator = e.target.innerText
             let display = `${firstNumber} ${operator}`
             userDisplay.innerText = display
+
+            if (firstNumber && secondNumber !== '') {
+                let answer = Calculation(Number(firstNumber), Number(secondNumber), operator)
+                firstNumber = answer;
+            }
         } else {
             let answer = Calculation(Number(firstNumber), Number(secondNumber), operator)
             resultDisplay.innerText = ` = ${answer}`;
@@ -74,7 +82,7 @@ operationBtn.forEach(opr => {
     });
 });
 
-
+// Clear Display
 let allClear = () => {
     firstNumber = '';
     secondNumber = '';
