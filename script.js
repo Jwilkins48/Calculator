@@ -68,7 +68,7 @@ operationBtn.forEach(opr => {
             let display = `${firstNumber} ${operator}`
             userDisplay.innerText = display
 
-            if (firstNumber && secondNumber !== '') {
+            if (firstNumber && secondNumber && operator !== '') {
                 let answer = Calculation(Number(firstNumber), Number(secondNumber), operator)
                 firstNumber = answer;
             }
